@@ -42,21 +42,6 @@ contract workPool {
        totalReceived += msg.value ;
    }
    
-   modifier hasAccess() {
-       
-       bool contains = false;
-       
-       for(uint i = 0; i < parties.length; i++) {
-           if (parties[i] == msg.sender) {
-               contains = true;
-           }
-       }
-       
-       require(contains);
-       _;
-       
-   }
-   
    function withdraw(string _newSignature) internal {
 
        uint amountAllocated = totalReceived/parties.length;
